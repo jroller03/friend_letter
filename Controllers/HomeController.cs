@@ -19,6 +19,20 @@ namespace FriendLetter.Controllers
         {
           return View();
         }
+        [Route("/vacation_form")]
+        public ActionResult VacationForm()
+        {
+          return View();
+        }
+        [Route("/vacation")]
+        public ActionResult Vacation()
+        {
+          LetterVariable myLetterVariable = new LetterVariable();
+          myLetterVariable.SetLocation(Request.Query["location"]);
+          myLetterVariable.SetItems(Request.Query["items"]);
+          return View("VacationList", myLetterVariable);
+        }
+        
         [Route("/form")]
         public ActionResult Form()
         {
